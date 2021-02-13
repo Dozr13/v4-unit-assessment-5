@@ -18,7 +18,7 @@ class Post extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/post/1`)
+    axios.get(`/api/post/?1=${this.props.match.params.post_id}`)
       .then(res => {
         this.setState({ ...res.data, loading: false })
       })
@@ -35,7 +35,7 @@ class Post extends Component {
             <div className='post-header'>
               <h2 className='title'>{this.state.title}</h2>
               <div className='author-box'>
-                <p>by {this.state.author}</p>
+                <p>by: {this.state.author}</p>
                 <img src={this.state.author_pic} alt='author' />
               </div>
             </div>
